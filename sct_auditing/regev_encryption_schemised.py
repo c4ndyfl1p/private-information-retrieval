@@ -59,15 +59,23 @@ def regevDecrpt(A, s, q, p, c):
 
     d_hat = (c - np.dot(A, s)) % q 
 
-    print(f"d_hat = c - as mod q= {c} - {np.dot(A,s)} mod q = ", d_hat)
+    # print(f"d_hat = c - as mod q= {c} - {np.dot(A,s)} mod q = ", d_hat)
     rounded_d = rounding(d_hat, scaling_factor)
 
 
 
-    print(f"rounded d = {rounded_d}")
+    # print(f"rounded d = {rounded_d}")
     
     d = rounded_d / scaling_factor
-    print(f"d = rounded_d/ floor(q/p)= {rounded_d}/ {scaling_factor} = {d}" )
+
+    for i in range(d.shape[0]):
+        if d[i] == 991:
+            d[i]=0
+
+    # print(f"d = rounded_d/ floor(q/p)= {rounded_d}/ {scaling_factor} = {d}" )
+
+    
+
     return d 
 
 

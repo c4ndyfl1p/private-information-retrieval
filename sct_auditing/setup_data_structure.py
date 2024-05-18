@@ -34,7 +34,7 @@ def get_index_in_bloom_filter( bloom_filter_size, hashed_sct):
     hash_as_integer = int(hashed_sct, 16)  # Convert hex hash to an integer
     index = hash_as_integer % bloom_filter_size  # Compute index for the Bloom filter
 
-    print(f"index is {index}")
+    # print(f"index is {index}")
    
 
     # Output the index
@@ -42,6 +42,9 @@ def get_index_in_bloom_filter( bloom_filter_size, hashed_sct):
 
 def setup_a_function_bloom_filter(sct_list, bloom_filter_size):
     salt_list= [b'salt0', b'salt1', b'salt2', b'salt3', b'salt4']
+
+    # generate random salts
+
     no_of_hash_functions = bloom_filter_size
     bloom_filter_1 = np.array(  [[0] * bloom_filter_size] * no_of_hash_functions  ) # Initialize the Bloom filter with zeros
     
@@ -54,7 +57,7 @@ def setup_a_function_bloom_filter(sct_list, bloom_filter_size):
             index_in_j = get_index_in_bloom_filter( bloom_filter_size, sct_i_hashed)
             # print(f"updating element {j}, {index_in_j}")
             bloom_filter_1[j, index_in_j]=1
-            print(bloom_filter_1)
+            # print(bloom_filter_1)
 
     return { 
         "a_function_bloom_filter": bloom_filter_1, 

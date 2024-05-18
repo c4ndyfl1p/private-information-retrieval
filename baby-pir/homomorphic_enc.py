@@ -46,7 +46,7 @@ print(f"s: {s}")
 
 
 # message (dim: 1 * m )
-# x= np.array([0,1])
+x= np.array([0,1])
 # x = np.array([[1]])
 #
 (A, c) = encrypt(s, x)
